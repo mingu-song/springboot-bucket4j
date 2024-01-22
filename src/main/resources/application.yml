@@ -1,0 +1,17 @@
+server:
+  shutdown: graceful
+  port: 8080
+
+spring:
+  config:
+    activate:
+      on-profile: local
+  lifecycle:
+    timeout-per-shutdown-phase: 60s
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+bucket:
+  plan: ${spring.config.activate.on-profile:local}
